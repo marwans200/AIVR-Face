@@ -25,8 +25,11 @@ public class PhenomesOutput : MonoBehaviour
         foreach (var f in framesGen)
         {
             currentMouthCode = f.mouthCode;
+            if (f.pauseAfter > 150) currentMouthCode = 0;
             yield return new WaitForSeconds(f.pauseAfter / 1000f);
         }
+
+        currentMouthCode = 0;
     }
 
 }

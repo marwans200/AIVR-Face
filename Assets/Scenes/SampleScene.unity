@@ -338,13 +338,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 761677489}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5866666020703530417}
+        m_TargetAssemblyTypeName: PhenomesOutput, Assembly-CSharp
+        m_MethodName: StartTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -485,86 +485,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &761677489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 761677491}
-  - component: {fileID: 761677490}
-  - component: {fileID: 761677492}
-  m_Layer: 0
-  m_Name: TestPhenomes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &761677490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761677489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a81e513a8ce4f8684503c32899a6e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestPhenomes
-  currentMouthCode: 0
-  sentence: 
---- !u!4 &761677491
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761677489}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37217, y: 1.16648, z: -0.89747}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &761677492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761677489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ff83f2bf1734dbfbeab9a42ed31c3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InterviewerController
-  inPhenomes: {fileID: 761677490}
-  AnimPositions:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0.5}
-  - {x: 0, y: 1}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  currentAnimPosition: {x: 0, y: 0}
-  InterviewerAnimator: {fileID: 5866666020703530416}
-  LerpSpeed: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1067,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 7390579100398513374, guid: 0260137114e911548bde7537bded215f, type: 3}
   m_Bones:
@@ -1394,6 +1314,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652489988042}
   - component: {fileID: 5866666020703530416}
+  - component: {fileID: 5866666020703530418}
+  - component: {fileID: 5866666020703530417}
   m_Layer: 0
   m_Name: JakeExportered
   m_TagString: Untagged
@@ -4433,6 +4355,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5866666020703530417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148218129776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a81e513a8ce4f8684503c32899a6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestPhenomes
+  currentMouthCode: 0
+  sentence: 
+--- !u!114 &5866666020703530418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148218129776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ff83f2bf1734dbfbeab9a42ed31c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InterviewerController
+  inPhenomes: {fileID: 5866666020703530417}
+  AnimPositions:
+  - name: Closed
+    pos: {x: 0, y: 0}
+  - name: A
+    pos: {x: 0, y: 0.75}
+  - name: E
+    pos: {x: 0, y: 0.5}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: O
+    pos: {x: 0, y: 1}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  - name: 
+    pos: {x: 0, y: 0}
+  currentAnimPosition: {x: 0, y: 0}
+  InterviewerAnimator: {fileID: 5866666020703530416}
+  LerpSpeed: 15
 --- !u!4 &5884070033180404154
 Transform:
   m_ObjectHideFlags: 0
@@ -5631,7 +5616,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -5727283436533813174, guid: 0260137114e911548bde7537bded215f, type: 3}
   m_Bones:
@@ -6459,7 +6444,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 1654403436102926152, guid: 0260137114e911548bde7537bded215f, type: 3}
   m_Bones:
@@ -6931,7 +6916,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -7654024864961597166, guid: 0260137114e911548bde7537bded215f, type: 3}
   m_Bones:
@@ -7097,6 +7082,5 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 543450652489988042}
-  - {fileID: 761677491}
   - {fileID: 1951969092}
   - {fileID: 1847655703}

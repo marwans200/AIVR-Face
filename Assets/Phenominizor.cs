@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 
 public static class Phenominizor
 {
-    // Common word mappings for more natural phonetics
     private static readonly Dictionary<string, string> WordMap = new Dictionary<string, string>()
     {
         { "you", "yu" }, { "are", "ar" }, { "is", "iz" }, { "am", "am" },
@@ -20,14 +19,12 @@ public static class Phenominizor
         { "write", "rite" }, { "right", "rite" }
     };
 
-    // General replacement rules
     private static readonly (string, string)[] Rules = new (string, string)[]
     {
         ("ph", "f"), ("ght", "t"), ("kn", "n"), ("wr", "r"),
         ("oo", "oo"), ("ee", "ee"), ("qu", "kw"), ("x", "ks"), ("c", "k")
     };
 
-    // Map phoneme letters to mouth shape codes
     private static readonly Dictionary<char, int> MouthShapeMap = new Dictionary<char, int>()
     {
         { 'a', 1 }, { 'e', 2 }, { 'i', 3 }, { 'o', 4 }, { 'u', 5 }, { 'y', 6 },
@@ -36,32 +33,41 @@ public static class Phenominizor
         { 'h', 14 }, { 'n', 15 }, { 'w', 16 }
     };
 
-    // Struct for each phoneme frame
     public struct MouthFrame
     {
-        public string letter;    // The actual letter/phoneme
-        public int mouthCode;    // Code for mouth shape
-        public int pauseAfter;   // Pause duration after this frame (ms)
+        public string letter;
+        public int mouthCode;
+        public int pauseAfter;
     }
 
-    // Convert input sentence into mouth frames
     public static List<MouthFrame> ToMouthFrames(string sentence)
     {
-        string[] tokens = Regex.Split(sentence, @"(\W)"); // split into words & punctuation
+        string[] tokens = Regex.Split(sentence, @"(\s+|[.,!?;:])");
         List<MouthFrame> frames = new List<MouthFrame>();
 
         foreach (string token in tokens)
         {
-            string trimmed = token.Trim();
-            if (string.IsNullOrEmpty(trimmed)) continue;
+            if (string.IsNullOrEmpty(token)) continue;
 
-            // Handle punctuation as pauses
-            if (Regex.IsMatch(trimmed, @"[.,!?;:]"))
+            // Spaces = word gap
+            if (Regex.IsMatch(token, @"\s+"))
             {
                 if (frames.Count > 0)
                 {
                     var last = frames[frames.Count - 1];
-                    last.pauseAfter += GetPauseForPunctuation(trimmed);
+                    last.pauseAfter += 300; // slower word pause
+                    frames[frames.Count - 1] = last;
+                }
+                continue;
+            }
+
+            // Punctuation = long pauses
+            if (Regex.IsMatch(token, @"[.,!?;:]"))
+            {
+                if (frames.Count > 0)
+                {
+                    var last = frames[frames.Count - 1];
+                    last.pauseAfter += GetPauseForPunctuation(token);
                     frames[frames.Count - 1] = last;
                 }
                 continue;
@@ -69,16 +75,16 @@ public static class Phenominizor
 
             // Word-level phonetic conversion
             string phonetic;
-            if (WordMap.ContainsKey(trimmed.ToLower()))
-                phonetic = WordMap[trimmed.ToLower()];
+            if (WordMap.ContainsKey(token.ToLower()))
+                phonetic = WordMap[token.ToLower()];
             else
             {
-                phonetic = trimmed.ToLower();
+                phonetic = token.ToLower();
                 foreach (var (oldVal, newVal) in Rules)
                     phonetic = phonetic.Replace(oldVal, newVal);
             }
 
-            // Per-letter mouth codes
+            // Letter → frames
             foreach (char c in phonetic)
             {
                 if (!char.IsLetter(c)) continue;
@@ -89,7 +95,7 @@ public static class Phenominizor
                 {
                     letter = c.ToString(),
                     mouthCode = code,
-                    pauseAfter = 80 // default per-letter pause
+                    pauseAfter = 120 // slower per-letter duration
                 });
             }
         }
@@ -97,18 +103,17 @@ public static class Phenominizor
         return frames;
     }
 
-    // Helper: pause values based on punctuation
     private static int GetPauseForPunctuation(string punctuation)
     {
         switch (punctuation)
         {
-            case ".": return 500;
-            case ",": return 250;
-            case ";": return 300;
-            case ":": return 300;
-            case "!": return 500;
-            case "?": return 500;
-            default: return 100;
+            case ".": return 700;
+            case ",": return 400;
+            case ";": return 450;
+            case ":": return 450;
+            case "!": return 700;
+            case "?": return 700;
+            default: return 200;
         }
     }
 }
