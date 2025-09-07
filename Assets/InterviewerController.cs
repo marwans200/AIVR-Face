@@ -19,7 +19,7 @@ public class InterviewerController : MonoBehaviour
     public void Update(){
         int cMC = inPhenomes.currentMouthCode;
         if(cMC < 0 || cMC >= AnimPositions.Length) return;
-        currentAnimPosition =  inPhenomes.currentMouthCode == 0 ? new Vector2(0,0) : Vector2.Lerp(currentAnimPosition,AnimPositions[inPhenomes.currentMouthCode].pos,Time.deltaTime* LerpSpeed);
+        currentAnimPosition =  Vector2.Lerp(currentAnimPosition,AnimPositions[inPhenomes.currentMouthCode].pos,Time.deltaTime* LerpSpeed);
         InterviewerAnimator.SetFloat("Y", currentAnimPosition.y);
         InterviewerAnimator.SetFloat("X", currentAnimPosition.x);
     }

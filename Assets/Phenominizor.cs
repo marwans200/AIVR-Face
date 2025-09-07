@@ -49,27 +49,27 @@ public static class Phenominizor
         {
             if (string.IsNullOrEmpty(token)) continue;
 
-            // Spaces = word gap
+            // Spaces = word gap (just extend previous pause)
             if (Regex.IsMatch(token, @"\s+"))
             {
                 if (frames.Count > 0)
                 {
                     var last = frames[frames.Count - 1];
-                    last.pauseAfter += 300; // slower word pause
+                    last.pauseAfter += 120;
                     frames[frames.Count - 1] = last;
                 }
                 continue;
             }
 
-            // Punctuation = long pauses
+            // Punctuation = add its own pause frame
             if (Regex.IsMatch(token, @"[.,!?;:]"))
             {
-                if (frames.Count > 0)
+                frames.Add(new MouthFrame
                 {
-                    var last = frames[frames.Count - 1];
-                    last.pauseAfter += GetPauseForPunctuation(token);
-                    frames[frames.Count - 1] = last;
-                }
+                    letter = token,
+                    mouthCode = 0, // special pause code
+                    pauseAfter = GetPauseForPunctuation(token)
+                });
                 continue;
             }
 
@@ -95,7 +95,7 @@ public static class Phenominizor
                 {
                     letter = c.ToString(),
                     mouthCode = code,
-                    pauseAfter = 120 // slower per-letter duration
+                    pauseAfter = 120
                 });
             }
         }

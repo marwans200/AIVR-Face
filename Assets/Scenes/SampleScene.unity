@@ -4368,7 +4368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestPhenomes
   currentMouthCode: 0
-  sentence: 
+  sentence: AEO AEO. AEO;
 --- !u!114 &5866666020703530418
 MonoBehaviour:
   m_ObjectHideFlags: 0
