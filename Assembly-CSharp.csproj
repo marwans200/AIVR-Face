@@ -48,10 +48,10 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.2.2f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Animation/Kevin Iglesias/Human Animations/Scripts/SpineProxy.cs" />
-    <Compile Include="Assets/Scripts/InterviewerController.cs" />
-    <Compile Include="Assets/Scripts/Phenominizor.cs" />
-    <Compile Include="Assets/Scripts/PhenomesOutput.cs" />
+    <Compile Include="Assets/ALLTHETHINGIES/Animation/Kevin Iglesias/Human Animations/Scripts/SpineProxy.cs" />
+    <Compile Include="Assets/ALLTHETHINGIES/Scripts/Phenominizor.cs" />
+    <Compile Include="Assets/ALLTHETHINGIES/Scripts/InterviewerController.cs" />
+    <Compile Include="Assets/ALLTHETHINGIES/Scripts/PhenomesOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
